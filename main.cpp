@@ -39,11 +39,7 @@ bool contains(array<char, 3> gejalaInput, array<char, 3> gejalaPenyakit) {
         }
     }
     // If the match value is more than two, confirm disease.
-    if (counter >= 2) {
-        return true;
-    } else {
-        return false;
-    }
+    return (counter >= 2);
 }
 
 // Main function.
@@ -57,6 +53,12 @@ int main() {
     array<char, 3> gejalaBatuk{'b', 'i', 'j'};
     array<char, 3> gejalaKelelahan{'b', 'e', 'f'};
     array<char, 3> gejalaInput{};
+
+    vector<vector<char>> charArr{
+            {'a', 's', 'd'},
+            {'v', 'c', 's'},
+            {'f', 'g', 'h'}
+    };
 
     // Display symptoms: symptoms are displayed and indexed with characters.
     cout << "Data gejala:\n";
@@ -79,9 +81,9 @@ int main() {
     }
 
     // Lowered all input data: to match correctly.
-    for (int i = 0; i < gejalaInput.size(); ++i) {
+    for (char & i : gejalaInput) {
         // Replace current value with lowered current value.
-        gejalaInput[i] = tolower(gejalaInput[i]);
+        i = tolower(i);
     }
 
     // Calculate: call contain function.
